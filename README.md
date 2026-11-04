@@ -47,6 +47,8 @@ Python 3.11+; the measured environment used Python 3.13.2. No GPU, API key, or
 dataset download is needed to run the included demo.
 
 ```powershell
+git clone https://github.com/Aidan-Arakkal/motionsense.git
+cd motionsense
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
@@ -134,9 +136,9 @@ docker build -t motionsense .
 docker run --rm -p 127.0.0.1:8000:8000 motionsense
 ```
 
-The Docker recipe and GitHub Actions configuration are supplied but were not
-executed in the authoring environment. Local Python training, inference, and tests
-are the verified path. Public hosting would additionally need authentication,
+The test suite also passed on GitHub Actions using Ubuntu and Python 3.13;
+see the [verified run](https://github.com/Aidan-Arakkal/motionsense/actions/runs/41932793863).
+The Docker recipe is supplied but has not been executed. Public hosting would additionally need authentication,
 request size/rate limits, observability, and an operational deployment plan.
 
 ## Repository guide

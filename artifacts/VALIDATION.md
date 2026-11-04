@@ -13,5 +13,10 @@ Executed locally on November 4, 2026:
 - Local sandbox restrictions prevented the Windows asyncio loopback socket from
   opening; API tests succeeded when run with normal local network access.
 
-Docker builds and hosted GitHub Actions were not executed. The repository includes
-their configuration, not evidence of cloud deployment.
+GitHub Actions also passed on Ubuntu with Python 3.13 after publication:
+https://github.com/Aidan-Arakkal/motionsense/actions/runs/41932793863
+That run installed dependencies from scratch and executed the test suite,
+including artifact integration tests using the committed checkpoint.
+
+Docker builds were not executed. The repository includes a Docker recipe, not
+evidence of cloud deployment or a hosted inference service.
