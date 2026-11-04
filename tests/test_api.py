@@ -1,4 +1,5 @@
 import json
+import os
 import numpy as np
 import pytest
 from fastapi.testclient import TestClient
@@ -9,6 +10,8 @@ from motionsense.inference import Predictor
 @pytest.fixture(scope="module")
 def client():
     if not (ARTIFACTS / "model.pt").exists():
+        if os.environ.get("CI"):
+            pytest.fail("CI must include artifacts/model.pt; check MOTIONSENSE_ARTIFACT_DIR")
         pytest.skip("Run python -m motionsense.train to enable artifact integration tests")
     with TestClient(app) as client:
         yield client

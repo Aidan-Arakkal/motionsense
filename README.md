@@ -136,8 +136,9 @@ docker build -t motionsense .
 docker run --rm -p 127.0.0.1:8000:8000 motionsense
 ```
 
-The test suite also passed on GitHub Actions using Ubuntu and Python 3.13;
-see the [verified run](https://github.com/Aidan-Arakkal/motionsense/actions/runs/41932793863).
+GitHub Actions runs the test suite on Ubuntu and Python 3.13 with the committed
+model artifacts. Missing artifacts fail CI instead of silently skipping integration tests;
+see [workflow results](https://github.com/Aidan-Arakkal/motionsense/actions/workflows/tests.yml).
 The Docker recipe is supplied but has not been executed. Public hosting would additionally need authentication,
 request size/rate limits, observability, and an operational deployment plan.
 

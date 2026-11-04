@@ -3,6 +3,8 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MOTIONSENSE_ARTIFACT_DIR: ${{ github.workspace }}/artifacts
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -10,4 +12,4 @@ jobs:
           python-version: '3.13'
       - run: pip install torch --index-url https://download.pytorch.org/whl/cpu
       - run: pip install '.[dev]'
-      - run: pytest -q
+      - run: python -m pytest -q
